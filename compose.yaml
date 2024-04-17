@@ -51,6 +51,12 @@ services:
       # - ./api/docker/db/data:/var/lib/postgresql/data
 ###< doctrine/doctrine-bundle ###
 
+  adminer:
+      image: adminer
+      container_name: adminer
+      ports:  
+        - 127.0.0.1:8080:8080
+
 # Mercure is installed as a Caddy module, prevent the Flex recipe from installing another service
 ###> symfony/mercure-bundle ###
 ###< symfony/mercure-bundle ###

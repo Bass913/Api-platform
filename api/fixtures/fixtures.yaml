@@ -1,0 +1,26 @@
+# fixtures/dummy.yaml
+
+App\Entity\Category:
+  category_{1..10}:
+    name: <name()>
+
+App\Entity\Ingredient:
+  ingredient_{1..50}:
+    name: <word()>
+
+App\Entity\Recipe:
+  recipe_{1..10}:
+    title: <sentence()>
+    createdAt: <dateTime()>
+    preparation_instructions: <paragraph()>
+    preparation_time: <numberBetween(10, 100)>
+    difficulty: <randomElement(["Easy", "Medium", "Hard"])>
+    status: "draft"
+    category: "@category*"
+
+App\Entity\Quantity:
+  quantity_{1..50}:
+    amount: <randomDigit()>
+    recipe: "@recipe*"
+    ingredient: "@ingredient*"
+    unit: <randomElement(["kg", "l", "ml", "g"])>
